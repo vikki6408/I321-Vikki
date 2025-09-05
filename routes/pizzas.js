@@ -1,15 +1,19 @@
 import express from "express";
-import { getPizza, createPizza } from "../controllers/pizzaController.js";
+import {getPizza, createPizza} from "../controllers/pizzas.js";
 
 
 
 const router = express.Router();
 
 // GET /api/users
-router.get("/api/pizzas", getPizza);
+router.get("/:id", getPizza);
 
 // POST /api/users
-router.post("/api/pizzas", createPizza);
+router.post("/", createPizza);
+
+//router.patch("/:id", patchPizza);
+
+//router.delete("/:id", deletePizza);
 
 router.get('/', function(req, res) {
     res.json({ message: 'Bienvenue sur ma route Express' });
